@@ -1,0 +1,102 @@
+<div class="container">
+    <form [formGroup]="displayForm">
+        <h1>ddddddd dd</h1>
+        {{stdName}}
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Dob</th>
+                <th>Pin</th>
+                <th>Gender</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tr *ngFor="let user of studentList">
+                <td>
+                    {{user.id}}
+                </td>
+                <td>
+                    <div *ngIf="user.isEdit">
+                        <input type="text" id="StudentName" formControlName="studentName">
+
+                    </div>
+                    <div *ngIf="!user.isEdit">
+                        {{ user.studentName }}
+                    </div>
+                </td>
+
+                <td>
+                    <div *ngIf="user.isEdit">
+                        <input type="text" id="Address" class="form-control" formControlName="address">
+                    </div>
+
+                    <div *ngIf="!user.isEdit">
+                        {{ user.address }}
+                    </div>
+
+                </td>
+
+                <td>
+                    <div *ngIf="user.isEdit">
+                        <input type="text" id="Email" class="form-control" formControlName="email">
+                    </div>
+                    <div *ngIf="!user.isEdit">
+                        {{ user.email }}
+                    </div>
+
+                </td>
+
+                <td>
+                    <div *ngIf="user.isEdit">
+                        <input type="date" id="DateOfBirth" class="form-control"
+                            formControlName="dateOfBirth">
+                    </div>
+                    <div *ngIf="!user.isEdit">
+                        {{ user.dateOfBirth }}
+                    </div>
+
+                </td>
+
+                <td>
+                    <div *ngIf="user.isEdit">
+                        <input type="number" name="pin" id="Pin" class="form-control"
+                            formControlName="pin">
+                    </div>
+                    <div *ngIf="!user.isEdit">
+                        {{ user.pin }}
+                    </div>
+
+                </td>
+
+                <td>
+                    <div *ngIf="user.isEdit">
+
+                    </div>
+                    <div *ngIf="!user.isEdit">
+                        {{ user.gender }}
+                    </div> 
+
+                </td>
+
+                <td>
+                    <div *ngIf="user.isEdit">
+                        <button>Update</button>
+                        <button (click)="user.isEdit=false">Cancel</button>
+                    </div>
+                    <div *ngIf="!user.isEdit">
+                        <button type="button" (click)="onEdit(user)">Edit</button>
+                    </div>
+                </td>
+
+                <td>
+                    <button type="button" (click)="deleteStudent(user.id)">Delete</button>
+                </td>
+
+            </tr>
+        </table>
+    </form>
+</div>
+{{this.studentList | json}}
