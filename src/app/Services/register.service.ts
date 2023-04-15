@@ -34,7 +34,8 @@ export class RegisterService {
     );
   }
 
-  updateStudent(stdObj: Observable<Student>) {
+  updateStudent77(stdObj: Observable<Student>) {
+    debugger;
     return this.httpClient.put<Student>(
       this.apiUrl + 'Student/UpdateStudent',
       stdObj
