@@ -11,7 +11,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./show-students.component.css'],
 })
 export class ShowStudentsComponent {
-
+  massage: string = '';
   studentList: Student[] = [];
 
   displayForm = new FormGroup({
@@ -38,7 +38,7 @@ export class ShowStudentsComponent {
   getMyAllStudents() {
     this._apiservice.getStudent().subscribe((data: Student[]) => {
       this.studentList = data;
-      console.log(this.studentList);
+      //console.log(this.studentList);
     });
   }
 
@@ -57,11 +57,30 @@ export class ShowStudentsComponent {
     });
   }
 
-  // updateStudent(stdObj:Student){
-  //   this._apiservice.updateStudent(stdObj).subscribe((data)=>{
+  updateStudent(user:any)
+  {
+    debugger;
+    //if (this.displayForm && this.displayForm.value !== null) 
+    //{
+    user.studentName=this.displayForm?.get('studentName');
+    user.address=this.displayForm?.get('address');
+    user.email=this.displayForm?.get('email');
+    user.gender=this.displayForm?.get('gender');
+    user.dateOfBirth=this.displayForm?.get('dateOfBirth');
+    user.pin=this.displayForm?.get('pin');
+   // }
+    
+    //console.log("See Updated Details:", user.dateOfBirth);
+  // user.isEdit=false;
+ 
+    this._apiservice.updateStudent77(user).subscribe((data)=>{
+      console.log("1ST TIME",data);
+      this.massage = 'Record updated Successfully';
+      user.isEdit=false;
+      this.displayForm.reset();  
 
-  //   })
-  // }
+    });
+  }
 
   onEdit(user: any) {
     debugger;
@@ -70,7 +89,7 @@ export class ShowStudentsComponent {
     });
  
     this.selectedGender=user.gender;
-    console.log(user);
+   // console.log(user);
     user.isEdit = true;
     this.displayForm?.get('studentName')?.setValue(user.studentName);
     this.displayForm?.get('address')?.setValue(user.address);

@@ -97,7 +97,7 @@
 
                 <td>
                     <div *ngIf="user.isEdit">
-                        <button>Update</button>
+                        <button (click)="updateStudent(user)">Update</button>
                         <button (click)="user.isEdit=false">Cancel</button>
                     </div>
                     <div *ngIf="!user.isEdit">
@@ -113,4 +113,4 @@
         </table>
     </form>
 </div>
-{{this.studentList | json}}
+<!-- {{this.studentList | json}} -->
