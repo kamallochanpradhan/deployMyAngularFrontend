@@ -76,7 +76,7 @@ export class ShowStudentsComponent {
     this.displayForm?.get('address')?.setValue(user.address);
     this.displayForm?.get('email')?.setValue(user.email);
 
-   // this.displayForm?.get('gender')?.setValue(this.selectedGender);
+   //// this.displayForm?.get('gender')?.setValue(this.selectedGender);
     this.displayForm?.get('gender')?.setValue(user.gender);
 
     // Get the date from backend in "1989-04-04T00:00:00" format
