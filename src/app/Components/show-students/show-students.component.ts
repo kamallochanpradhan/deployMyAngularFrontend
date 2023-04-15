@@ -11,6 +11,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./show-students.component.css'],
 })
 export class ShowStudentsComponent {
+
   studentList: Student[] = [];
 
   displayForm = new FormGroup({
@@ -19,9 +20,11 @@ export class ShowStudentsComponent {
     email: new FormControl(''),
     dateOfBirth: new FormControl(''),
     pin: new FormControl(''),
+    gender: new FormControl('')
   });
 
   stdName: string | undefined;
+  selectedGender!: string;
 
   constructor(private _apiservice: RegisterService, private fb: FormBuilder,private datePipe: DatePipe) 
   {
@@ -65,12 +68,16 @@ export class ShowStudentsComponent {
     this.studentList.forEach((element) => {
       element.isEdit = false;
     });
-
+ 
+    this.selectedGender=user.gender;
     console.log(user);
     user.isEdit = true;
     this.displayForm?.get('studentName')?.setValue(user.studentName);
     this.displayForm?.get('address')?.setValue(user.address);
     this.displayForm?.get('email')?.setValue(user.email);
+
+   // this.displayForm?.get('gender')?.setValue(this.selectedGender);
+    this.displayForm?.get('gender')?.setValue(user.gender);
 
     // Get the date from backend in "1989-04-04T00:00:00" format
     const backendDate = user.dateOfBirth;

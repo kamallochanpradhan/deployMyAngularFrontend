@@ -73,7 +73,21 @@
 
                 <td>
                     <div *ngIf="user.isEdit">
-
+                        <div class="form-check-label form-check-inline">
+                            <input type="radio" name="gender" id="male"
+                             value="M" class="form-check-input"
+                           
+                              formControlName="gender">
+                            <label for="male" class="form-check-label">Male</label>
+                          </div>
+            
+                          <div class="form-check-label form-check-inline">
+                            <input type="radio" name="gender" id="female"
+                             value="F"
+                             class="form-check-input"
+                            formControlName="gender">
+                            <label for="female" class="form-check-label">Female</label>
+                          </div>
                     </div>
                     <div *ngIf="!user.isEdit">
                         {{ user.gender }}
