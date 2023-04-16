@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="displayForm">
+    <form [formGroup]="displayForm" (ngSubmit)="update()">
         <h1>ddddddd dd</h1>
         {{stdName}}
         <table class="table table-bordered">
@@ -97,7 +97,7 @@
 
                 <td>
                     <div *ngIf="user.isEdit">
-                        <button (click)="updateStudent(user)">Update</button>
+                        <button type="submit">Update</button>
                         <button (click)="user.isEdit=false">Cancel</button>
                     </div>
                     <div *ngIf="!user.isEdit">

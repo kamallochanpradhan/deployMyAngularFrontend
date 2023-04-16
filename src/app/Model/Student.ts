@@ -1,10 +1,10 @@
 export interface Student {
   // Now, write all properties of the Employee class related to an employee that matches with the database.
   id:number;
-  Password: number;
+  password: number;
   studentName: string;
   email: string | undefined;
-  dateOfBirth: Date | undefined;
+  dateOfBirth: Date;
   gender: string | undefined;
   address: string | undefined;
   pin: number | undefined;

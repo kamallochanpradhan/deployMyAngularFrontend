@@ -14,6 +14,11 @@ export class ShowStudentsComponent {
   massage: string = '';
   studentList: Student[] = [];
 
+  // Create a new instance of Student
+//updatedStudent:Student | undefined;
+updatedStudent: Student | undefined;
+ 
+
   displayForm = new FormGroup({
     studentName: new FormControl(''),
     address: new FormControl(''),
@@ -25,6 +30,7 @@ export class ShowStudentsComponent {
 
   stdName: string | undefined;
   selectedGender!: string;
+
 
   constructor(private _apiservice: RegisterService, private fb: FormBuilder,private datePipe: DatePipe) 
   {
@@ -57,23 +63,57 @@ export class ShowStudentsComponent {
     });
   }
 
+  update()
+  {
+    debugger;
+    const Id = this.displayForm?.get('Id')?.value??''
+    const id2=parseInt(Id);
+    const studentName = this.displayForm?.get('studentName')?.value??''
+    const address=this.displayForm?.get('address');
+    const email=this.displayForm?.get('email');
+    const gender=this.displayForm?.get('gender');
+    const dateOfBirth=(this.displayForm?.get('dateOfBirth'));
+    const dateObj = new Date(); 
+  
+    const pin=this.displayForm?.get('pin');
+    
+
+    const datetimeStr: string | null = "1989-04-04";
+    const datetimeValue: Date = new Date(datetimeStr);
+
+    this.updatedStudent = {
+      id: 1,
+      password:123,
+      studentName: "uuuuuu",
+      address: this.displayForm?.get('address')?.value??'',
+      email: this.displayForm?.get('email')?.value??'',
+      gender: this.displayForm?.get('gender')?.value??'',
+      dateOfBirth: datetimeValue,
+      "pin": 827,
+      isEdit:false   
+    };
+ 
+
+    this._apiservice.updateStudent(this.updatedStudent).subscribe((data)=>{
+      console.log("1ST TIME",data);
+      this.massage = 'Record updated Successfully';
+      //user.isEdit=false;
+      this.displayForm.reset();  
+
+    });
+  }
+
   updateStudent(user:any)
   {
     debugger;
-    //if (this.displayForm && this.displayForm.value !== null) 
-    //{
     user.studentName=this.displayForm?.get('studentName');
     user.address=this.displayForm?.get('address');
     user.email=this.displayForm?.get('email');
     user.gender=this.displayForm?.get('gender');
     user.dateOfBirth=this.displayForm?.get('dateOfBirth');
     user.pin=this.displayForm?.get('pin');
-   // }
-    
-    //console.log("See Updated Details:", user.dateOfBirth);
-  // user.isEdit=false;
- 
-    this._apiservice.updateStudent77(user).subscribe((data)=>{
+   
+    this._apiservice.updateStudent(user).subscribe((data)=>{
       console.log("1ST TIME",data);
       this.massage = 'Record updated Successfully';
       user.isEdit=false;
