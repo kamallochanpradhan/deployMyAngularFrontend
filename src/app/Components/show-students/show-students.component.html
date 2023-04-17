@@ -1,6 +1,5 @@
 <div class="container">
     <form [formGroup]="displayForm" (ngSubmit)="update()">
-        <h1>ddddddd dd</h1>
         {{stdName}}
         <table class="table table-bordered">
             <tr>
@@ -111,6 +110,24 @@
 
             </tr>
         </table>
+
+        <div>
+           <table>
+            <tr>
+                <td>See Use of ng-template:</td>
+                <td>
+                    <p *ngIf="captureGenderselectedvalue =='M'; else genderselection">
+                        Male Selected...............                   
+                    </p>
+                      <ng-template #genderselection >
+                        <p>Female selected .............
+                       
+                        </p>
+                      </ng-template>
+                </td>
+            </tr>
+           </table>
+        </div>
     </form>
 </div>
 <!-- {{this.studentList | json}} -->

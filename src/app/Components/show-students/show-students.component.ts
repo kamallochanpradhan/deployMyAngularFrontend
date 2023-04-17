@@ -13,6 +13,7 @@ import { DatePipe } from '@angular/common';
 export class ShowStudentsComponent {
   massage: string = '';
   studentList: Student[] = [];
+  captureGenderselectedvalue:string | undefined;
 
   // Create a new instance of Student
 //updatedStudent:Student | undefined;
@@ -39,6 +40,7 @@ updatedStudent: Student | undefined;
 
   ngOnInit(): void {
     this.getMyAllStudents();
+    this.captureGenderselectedvalue='';
   }
 
   getMyAllStudents() {
@@ -74,10 +76,7 @@ updatedStudent: Student | undefined;
     const gender=this.displayForm?.get('gender');
     const dateOfBirth=(this.displayForm?.get('dateOfBirth'));
     const dateObj = new Date(); 
-  
-    const pin=this.displayForm?.get('pin');
-    
-
+    const pin=this.displayForm?.get('pin'); 
     const datetimeStr: string | null = "1989-04-04";
     const datetimeValue: Date = new Date(datetimeStr);
 
@@ -93,6 +92,7 @@ updatedStudent: Student | undefined;
       isEdit:false   
     };
  
+    this.captureGenderselectedvalue=this.displayForm?.get('gender')?.value??'',
 
     this._apiservice.updateStudent(this.updatedStudent).subscribe((data)=>{
       console.log("1ST TIME",data);

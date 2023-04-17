@@ -9,12 +9,14 @@ import { RegisterComponent } from './Components/register/register.component';
 import { ShowStudentsComponent } from './Components/show-students/show-students.component';
 import { RegisterService } from './Services/register.service';
 import { DatePipe } from '@angular/common';
+import { LoginComponent } from './Components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    ShowStudentsComponent
+    ShowStudentsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
