@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +10,7 @@ import { ShowStudentsComponent } from './Components/show-students/show-students.
 import { RegisterService } from './Services/register.service';
 import { DatePipe } from '@angular/common';
 import { LoginComponent } from './Components/login/login.component';
+import { HeaderinterceptorService } from './Interceptors/headerinterceptor.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,15 @@ import { LoginComponent } from './Components/login/login.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [DatePipe],
+  providers: [
+   
+    DatePipe,
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass:HeaderinterceptorService,
+    multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
