@@ -11,6 +11,7 @@ import { RegisterService } from './Services/register.service';
 import { DatePipe } from '@angular/common';
 import { LoginComponent } from './Components/login/login.component';
 import { HeaderinterceptorService } from './Interceptors/headerinterceptor.service';
+import { ErrorlogginginterceptorService } from './Interceptors/errorlogginginterceptor.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,12 @@ import { HeaderinterceptorService } from './Interceptors/headerinterceptor.servi
     provide: HTTP_INTERCEPTORS,
     useClass:HeaderinterceptorService,
     multi:true
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:ErrorlogginginterceptorService,
+      multi:true
+      }
   ],
   bootstrap: [AppComponent]
 })
