@@ -14,13 +14,17 @@ import { HeaderinterceptorService } from './Interceptors/headerinterceptor.servi
 import { ErrorlogginginterceptorService } from './Interceptors/errorlogginginterceptor.service';
 import { SignupEmployeeComponent } from './employee/EmployeeComponents/signup-employee/signup-employee.component';
 import { EmployeeModule } from './employee/employee.module';
+import { AllconceptComponent } from './allconcept/allconcept.component';
+import { LifecyclehookComponent } from './lifecyclehook/lifecyclehook.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     ShowStudentsComponent,
-    LoginComponent
+    LoginComponent,
+    AllconceptComponent,
+    LifecyclehookComponent
   ],
   imports: [
     BrowserModule,
