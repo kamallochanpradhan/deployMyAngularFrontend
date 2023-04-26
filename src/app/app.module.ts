@@ -12,6 +12,8 @@ import { DatePipe } from '@angular/common';
 import { LoginComponent } from './Components/login/login.component';
 import { HeaderinterceptorService } from './Interceptors/headerinterceptor.service';
 import { ErrorlogginginterceptorService } from './Interceptors/errorlogginginterceptor.service';
+import { SignupEmployeeComponent } from './employee/EmployeeComponents/signup-employee/signup-employee.component';
+import { EmployeeModule } from './employee/employee.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ErrorlogginginterceptorService } from './Interceptors/errorlogginginter
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    EmployeeModule
   ],
   providers: [
    

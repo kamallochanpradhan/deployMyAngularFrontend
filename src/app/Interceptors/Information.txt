@@ -1,0 +1,21 @@
+
+Information regarding Implementation
+=================================================================================================
+
+HTTP_INTERCEPTORS
+*************************************
+1. HeaderinterceptorService  (This Interceptors used to add content type to header of the request)
+2. ErrorlogginginterceptorService (This Interceptors used to log the error)
+
+Components
+*************************************
+1. Register component  (for signup/register a new student)
+2. ShowStudentsComponent  (To dispaly the student details,edit,delete)
+
+Services
+*************************************
+1.RegisterService  (To do Insert,update,delete,register student)
+
+Models
+*************************************
+1.Student  (This interface used  to for student related crud operations as strongly typed )
