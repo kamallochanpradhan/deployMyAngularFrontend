@@ -2,7 +2,14 @@
 
  <ul>
     <li>
-        <a class="nav-link" routerLink="">Employee Module Implemented</a>
+     <h5 style="color:blue">SignUp Employee Component Implemented in New Module Name Employee Module</h5>
         <app-signup-employee></app-signup-employee>
+    </li>
+    <li>
+        <h5 style="color: red;">Number To Words Pipe Concept Used ..Textbox pass number below see In Words</h5>
+        <input type="text"  [(ngModel)]="myValue">
+        <br/>
+         <br/>
+        <p>Number in words: {{ myValue | numbersToWordsPipe }}</p>
     </li>
  </ul>
