@@ -4,12 +4,14 @@ import { SignupEmployeeComponent } from './EmployeeComponents/signup-employee/si
 import { NumbersToWordsPipePipe } from './numbers-to-words-pipe.pipe';
 import { MyCustomdirectiveDirective } from './my-customdirective.directive';
 import { DirectieveforhostlistnerDirective } from './directieveforhostlistner.directive';
+import { CustomButtonComponentForHostBindingComponent } from './custom-button-component-for-host-binding/custom-button-component-for-host-binding.component';
 @NgModule({
   declarations: [
     SignupEmployeeComponent,
     NumbersToWordsPipePipe,
     MyCustomdirectiveDirective,
-    DirectieveforhostlistnerDirective
+    DirectieveforhostlistnerDirective,
+    CustomButtonComponentForHostBindingComponent
   ],
   imports: [
     CommonModule
@@ -17,7 +19,8 @@ import { DirectieveforhostlistnerDirective } from './directieveforhostlistner.di
   exports:[SignupEmployeeComponent,
     NumbersToWordsPipePipe,
     MyCustomdirectiveDirective,
-    DirectieveforhostlistnerDirective
+    DirectieveforhostlistnerDirective,
+    CustomButtonComponentForHostBindingComponent
   ]
 })
 export class EmployeeModule
