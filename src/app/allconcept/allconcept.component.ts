@@ -9,11 +9,13 @@ import { NumbersToWordsPipePipe } from '../employee/numbers-to-words-pipe.pipe';
 export class AllconceptComponent implements OnInit{
 
   myValue:number | undefined;
+  myValue2 = 'Hello world';
 
 
   ngOnInit(): void {
     
     this.myValue=3001;
+    this.myValue2 = 'Directieve used with Input';
   }
 
  
