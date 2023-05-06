@@ -27,4 +27,10 @@
         <h5>HostBinding Implemented: </h5>
         <app-custom-button-component-for-host-binding>ggggg</app-custom-button-component-for-host-binding>
     </li>
+    <li>
+        <h5>Life Cycle Hook for check ngOnchanges:</h5>
+        <p>Parent Component</p>
+        <input type="text" [(ngModel)]="txtInput">
+        <app-lifecyclehook [messageFromParent]="txtInput"></app-lifecyclehook>
+    </li>
  </ul>

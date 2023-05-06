@@ -11,6 +11,7 @@ export class AllconceptComponent implements OnInit{
 
   myValue:number | undefined;
   myValue2 = 'Hello world';
+  txtInput="";
 
 
   ngOnInit(): void {
