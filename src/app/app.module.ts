@@ -16,6 +16,7 @@ import { SignupEmployeeComponent } from './employee/EmployeeComponents/signup-em
 import { EmployeeModule } from './employee/employee.module';
 import { AllconceptComponent } from './allconcept/allconcept.component';
 import { LifecyclehookComponent } from './lifecyclehook/lifecyclehook.component';
+import { NgClassImplementComponent } from './ng-class-implement/ng-class-implement.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LifecyclehookComponent } from './lifecyclehook/lifecyclehook.component'
     ShowStudentsComponent,
     LoginComponent,
     AllconceptComponent,
-    LifecyclehookComponent
+    LifecyclehookComponent,
+    NgClassImplementComponent
   ],
   imports: [
     BrowserModule,

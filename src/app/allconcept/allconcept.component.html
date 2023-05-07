@@ -7,7 +7,7 @@
     </li>
     <li>
         <h5 style="color: red;">Number To Words Pipe Concept Used ..Textbox pass number below see In Words</h5>
-        <input type="text"  [(ngModel)]="myValue">
+        <input type="text" [(ngModel)]="myValue">
         <br/>
          <br/>
         <p>Number in words: {{ myValue | numbersToWordsPipe }}</p>
@@ -32,5 +32,10 @@
         <p>Parent Component</p>
         <input type="text" [(ngModel)]="txtInput">
         <app-lifecyclehook [messageFromParent]="txtInput"></app-lifecyclehook>
+    </li>
+
+    <li>
+        <h5>ng class used</h5>
+        <app-ng-class-implement></app-ng-class-implement>
     </li>
  </ul>

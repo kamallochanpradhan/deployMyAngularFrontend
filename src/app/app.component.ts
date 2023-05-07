@@ -13,7 +13,6 @@ export class AppComponent implements OnInit{
 
   }
   ngOnInit(): void {
-   alert("Hi kamal");
   }
   
 }
