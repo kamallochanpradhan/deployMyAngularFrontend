@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Subscriber } from 'rxjs';
 import { Student } from 'src/app/Model/Student';
 import { RegisterService } from 'src/app/Services/register.service';
 
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   //signUpForm: FormGroup = new FormGroup({});
   signUpForm: any;
 
-  constructor(private _apiservice: RegisterService) {}
+  constructor(private _apiservice: RegisterService) {} 
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
@@ -25,6 +26,10 @@ export class RegisterComponent implements OnInit {
       Address: new FormControl(null),
       Gender: new FormControl(null),
     });
+
+    this.signUpForm.valueChanges.subscribe((value: any)=>{
+      console.log("Value Changes Observable will give you all the forms Details",value);
+    })
   }
   RegisterStudent(student: Student) {
     this._apiservice.InsertStudent(student).subscribe(() => {
