@@ -10,6 +10,7 @@ export class NgClassImplementComponent
 
   marks:string="89";
   myclass:string="";
+  odd:number=12;
 
   constructor()
   {
