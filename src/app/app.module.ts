@@ -19,6 +19,7 @@ import { LifecyclehookComponent } from './lifecyclehook/lifecyclehook.component'
 import { NgClassImplementComponent } from './ng-class-implement/ng-class-implement.component';
 import { ObservabletestComponent } from './observabletest/observabletest.component';
 import { ObservablwwithmappipeoperatorComponent } from './observablwwithmappipeoperator/observablwwithmappipeoperator.component';
+import { DiffObservableVsSubjectComponent } from './diff-observable-vs-subject/diff-observable-vs-subject.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ObservablwwithmappipeoperatorComponent } from './observablwwithmappipeo
     LifecyclehookComponent,
     NgClassImplementComponent,
     ObservabletestComponent,
-    ObservablwwithmappipeoperatorComponent
+    ObservablwwithmappipeoperatorComponent,
+    DiffObservableVsSubjectComponent
   ],
   imports: [
     BrowserModule,
