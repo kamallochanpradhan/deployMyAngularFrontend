@@ -18,6 +18,7 @@ import { AllconceptComponent } from './allconcept/allconcept.component';
 import { LifecyclehookComponent } from './lifecyclehook/lifecyclehook.component';
 import { NgClassImplementComponent } from './ng-class-implement/ng-class-implement.component';
 import { ObservabletestComponent } from './observabletest/observabletest.component';
+import { ObservablwwithmappipeoperatorComponent } from './observablwwithmappipeoperator/observablwwithmappipeoperator.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ObservabletestComponent } from './observabletest/observabletest.compone
     AllconceptComponent,
     LifecyclehookComponent,
     NgClassImplementComponent,
-    ObservabletestComponent
+    ObservabletestComponent,
+    ObservablwwithmappipeoperatorComponent
   ],
   imports: [
     BrowserModule,
