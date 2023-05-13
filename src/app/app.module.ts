@@ -22,6 +22,7 @@ import { ObservablwwithmappipeoperatorComponent } from './observablwwithmappipeo
 import { DiffObservableVsSubjectComponent } from './diff-observable-vs-subject/diff-observable-vs-subject.component';
 import { BehaviorSubjectExampleComponent } from './behavior-subject-example/behavior-subject-example.component';
 import { SubjectvsbehavioursubjectExampleComponent } from './subjectvsbehavioursubject-example/subjectvsbehavioursubject-example.component';
+import { ObservableVsPromiseExampleComponent } from './observable-vs-promise-example/observable-vs-promise-example.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SubjectvsbehavioursubjectExampleComponent } from './subjectvsbehaviours
     ObservablwwithmappipeoperatorComponent,
     DiffObservableVsSubjectComponent,
     BehaviorSubjectExampleComponent,
-    SubjectvsbehavioursubjectExampleComponent
+    SubjectvsbehavioursubjectExampleComponent,
+    ObservableVsPromiseExampleComponent
   ],
   imports: [
     BrowserModule,
