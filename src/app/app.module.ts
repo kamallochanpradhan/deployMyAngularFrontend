@@ -20,6 +20,8 @@ import { NgClassImplementComponent } from './ng-class-implement/ng-class-impleme
 import { ObservabletestComponent } from './observabletest/observabletest.component';
 import { ObservablwwithmappipeoperatorComponent } from './observablwwithmappipeoperator/observablwwithmappipeoperator.component';
 import { DiffObservableVsSubjectComponent } from './diff-observable-vs-subject/diff-observable-vs-subject.component';
+import { BehaviorSubjectExampleComponent } from './behavior-subject-example/behavior-subject-example.component';
+import { SubjectvsbehavioursubjectExampleComponent } from './subjectvsbehavioursubject-example/subjectvsbehavioursubject-example.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { DiffObservableVsSubjectComponent } from './diff-observable-vs-subject/d
     NgClassImplementComponent,
     ObservabletestComponent,
     ObservablwwithmappipeoperatorComponent,
-    DiffObservableVsSubjectComponent
+    DiffObservableVsSubjectComponent,
+    BehaviorSubjectExampleComponent,
+    SubjectvsbehavioursubjectExampleComponent
   ],
   imports: [
     BrowserModule,
