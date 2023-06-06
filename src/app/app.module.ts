@@ -23,6 +23,7 @@ import { DiffObservableVsSubjectComponent } from './diff-observable-vs-subject/d
 import { BehaviorSubjectExampleComponent } from './behavior-subject-example/behavior-subject-example.component';
 import { SubjectvsbehavioursubjectExampleComponent } from './subjectvsbehavioursubject-example/subjectvsbehavioursubject-example.component';
 import { ObservableVsPromiseExampleComponent } from './observable-vs-promise-example/observable-vs-promise-example.component';
+import { Hostbinding2Example2Component } from './hostbinding2-example2/hostbinding2-example2.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ObservableVsPromiseExampleComponent } from './observable-vs-promise-exa
     DiffObservableVsSubjectComponent,
     BehaviorSubjectExampleComponent,
     SubjectvsbehavioursubjectExampleComponent,
-    ObservableVsPromiseExampleComponent
+    ObservableVsPromiseExampleComponent,
+    Hostbinding2Example2Component
   ],
   imports: [
     BrowserModule,
