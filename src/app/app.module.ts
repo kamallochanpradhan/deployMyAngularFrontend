@@ -25,6 +25,7 @@ import { SubjectvsbehavioursubjectExampleComponent } from './subjectvsbehaviours
 import { ObservableVsPromiseExampleComponent } from './observable-vs-promise-example/observable-vs-promise-example.component';
 import { Hostbinding2Example2Component } from './hostbinding2-example2/hostbinding2-example2.component';
 import { BetterhighlightDirective } from './betterhighlight.directive';
+import { PassrqstHeaderWithRqstObjectComponent } from './Components/passrqst-header-with-rqst-object/passrqst-header-with-rqst-object.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { BetterhighlightDirective } from './betterhighlight.directive';
     SubjectvsbehavioursubjectExampleComponent,
     ObservableVsPromiseExampleComponent,
     Hostbinding2Example2Component,
-    BetterhighlightDirective
+    BetterhighlightDirective,
+    PassrqstHeaderWithRqstObjectComponent
   ],
   imports: [
     BrowserModule,
