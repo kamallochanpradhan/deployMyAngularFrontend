@@ -26,6 +26,7 @@ import { ObservableVsPromiseExampleComponent } from './observable-vs-promise-exa
 import { Hostbinding2Example2Component } from './hostbinding2-example2/hostbinding2-example2.component';
 import { BetterhighlightDirective } from './betterhighlight.directive';
 import { PassrqstHeaderWithRqstObjectComponent } from './Components/passrqst-header-with-rqst-object/passrqst-header-with-rqst-object.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -58,15 +59,20 @@ import { PassrqstHeaderWithRqstObjectComponent } from './Components/passrqst-hea
    
     DatePipe,
     {
-    provide: HTTP_INTERCEPTORS,
-    useClass:HeaderinterceptorService,
-    multi:true
-    },
-    {
       provide: HTTP_INTERCEPTORS,
-      useClass:ErrorlogginginterceptorService,
-      multi:true
-      }
+      useClass: AuthInterceptor,
+      multi: true
+    }
+    // {
+    // provide: HTTP_INTERCEPTORS,
+    // useClass:HeaderinterceptorService,
+    // multi:true
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass:ErrorlogginginterceptorService,
+    //   multi:true
+    //   }
   ],
   bootstrap: [AppComponent]
 })
