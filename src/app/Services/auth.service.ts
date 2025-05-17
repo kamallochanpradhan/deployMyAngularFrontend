@@ -25,6 +25,26 @@ export class AuthService
         })
       );
   }
+/** when normal token expire alos our page wont logout...siliently it will send http request 
+ * to refresh token and get new token and set it in local storage. As a paramwter we
+ *  we pass ExpiredToken andRefreshToken.
+*/
+refreshToken(): Observable<AuthResponse> {
+  const refreshToken = this.getRefreshToken();
+  const expiredToken = this.getAccessToken(); // assuming it expired
+  return this.httpClient.post<AuthResponse>(this.apiUrl + 'Account/RefreshToken', {
+    refreshToken,
+    expiredToken
+  });
+}
+
+
+getRefreshToken(): string | null {
+  console.log("getRefreshToken method call in authservice kamal",this.REFRESH_TOKEN_KEY);
+  return localStorage.getItem(this.REFRESH_TOKEN_KEY);
+}
+
+
 
   // Save tokens
   setTokens(accessToken: string, refreshToken: string): void {
@@ -40,8 +60,8 @@ export class AuthService
 console.log("getaccesstokkama",this.ACCESS_TOKEN_KEY)
   }
 
-  // clearTokens(): void {
-  //   localStorage.removeItem(this.ACCESS_TOKEN_KEY);
-  //   localStorage.removeItem(this.REFRESH_TOKEN_KEY);
-  // }
+  clearTokens(): void {
+    localStorage.removeItem(this.ACCESS_TOKEN_KEY);
+    localStorage.removeItem(this.REFRESH_TOKEN_KEY);
+  }
 }
