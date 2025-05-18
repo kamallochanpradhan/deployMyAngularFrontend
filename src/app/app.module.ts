@@ -27,6 +27,7 @@ import { Hostbinding2Example2Component } from './hostbinding2-example2/hostbindi
 import { BetterhighlightDirective } from './betterhighlight.directive';
 import { PassrqstHeaderWithRqstObjectComponent } from './Components/passrqst-header-with-rqst-object/passrqst-header-with-rqst-object.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { LogoutComponent } from './Components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AuthInterceptor } from './auth.interceptor';
     ObservableVsPromiseExampleComponent,
     Hostbinding2Example2Component,
     BetterhighlightDirective,
-    PassrqstHeaderWithRqstObjectComponent
+    PassrqstHeaderWithRqstObjectComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

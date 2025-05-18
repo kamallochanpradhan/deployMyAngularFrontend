@@ -4,6 +4,7 @@ import { ShowStudentsComponent } from './Components/show-students/show-students.
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { AllconceptComponent } from './allconcept/allconcept.component';
+import { LogoutComponent } from './Components/logout/logout.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: ShowStudentsComponent },
@@ -14,7 +15,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./poduct/poduct.module').then((x) => x.PoductModule),
   },
-  { path: '', component: LoginComponent },
+  //{ path: '', component: LoginComponent },
+  //{ path: 'logout', component: LogoutComponent }
+  { path: 'login', component: LoginComponent },
+{ path: '', redirectTo: 'login', pathMatch: 'full' }, // default redirect
+
+
 ];
 
 @NgModule({
