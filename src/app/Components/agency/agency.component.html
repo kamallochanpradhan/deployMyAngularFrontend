@@ -1,0 +1,73 @@
+<div class="container mt-4">
+  <h2>Register Agency</h2>
+  <form [formGroup]="agencyForm" (ngSubmit)="onSubmit()">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Agency Name</label>
+        <input id="name" type="text" class="form-control" formControlName="name" placeholder="Enter agency name" />
+      </div>
+      <div class="col-md-6">
+        <label for="registrationNumber" class="form-label">Registration Number</label>
+        <input id="registrationNumber" type="text" class="form-control" formControlName="registrationNumber" placeholder="Enter registration number" />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="establishedDate" class="form-label">Established Date</label>
+        <input id="establishedDate" type="date" class="form-control" formControlName="establishedDate" />
+      </div>
+      <div class="col-md-6">
+        <label for="agencyType" class="form-label">Agency Type</label>
+        <select id="agencyType" class="form-select" formControlName="agencyType">
+          <option value="">Select type</option>
+          <option value="Govt">Govt</option>
+          <option value="Private">Private</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-check mb-3">
+      <input type="checkbox" class="form-check-input" id="isActive" formControlName="isActive" />
+      <label class="form-check-label" for="isActive">Active</label>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea id="description" class="form-control" formControlName="description" rows="3" placeholder="Enter description"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="agencyForm.invalid">
+      {{ editMode ? 'Update' : 'Register' }}
+    </button>
+  </form>
+
+  <hr class="my-4" />
+
+  <h3>Agency List</h3>
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Reg No</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Active</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agency of agencies">
+        <td>{{ agency.name }}</td>
+        <td>{{ agency.registrationNumber }}</td>
+        <td>{{ agency.establishedDate | date }}</td>
+        <td>{{ agency.agencyType }}</td>
+        <td>{{ agency.isActive ? 'Yes' : 'No' }}</td>
+        <td>
+          <button class="btn btn-sm btn-warning me-1" (click)="editAgency(agency)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteAgency(agency.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

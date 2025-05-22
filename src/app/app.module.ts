@@ -28,6 +28,8 @@ import { BetterhighlightDirective } from './betterhighlight.directive';
 import { PassrqstHeaderWithRqstObjectComponent } from './Components/passrqst-header-with-rqst-object/passrqst-header-with-rqst-object.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { LogoutComponent } from './Components/logout/logout.component';
+import { AgencyComponent } from './Components/agency/agency.component';
+import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { LogoutComponent } from './Components/logout/logout.component';
     Hostbinding2Example2Component,
     BetterhighlightDirective,
     PassrqstHeaderWithRqstObjectComponent,
-    LogoutComponent
+    LogoutComponent,
+    AgencyComponent,
+    ProductDashboardComponent
   ],
   imports: [
     BrowserModule,
