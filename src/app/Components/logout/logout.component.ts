@@ -5,6 +5,8 @@ import { AuthService } from '../../Services/auth.service';
 
 @Component({
   selector: 'app-logout',
+  standalone: true,
+  imports: [],
   template: `<div class="logout-message">Logging you out...</div>`,
   styles: [`.logout-message { font-size: 20px; text-align: center; margin-top: 100px; }`]
 })

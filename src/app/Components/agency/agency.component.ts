@@ -5,6 +5,9 @@ import { AgencyService } from 'src/app/Services/agency.service';
 
 @Component({
   selector: 'app-agency',
+  standalone: true,
+  imports: [],
+  // Note: If you have any other components or modules to import, add them here
   templateUrl: './agency.component.html',
   styleUrls: ['./agency.component.css']
 })

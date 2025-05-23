@@ -6,6 +6,8 @@ import { RegisterService } from 'src/app/Services/register.service';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
+  imports: [],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })

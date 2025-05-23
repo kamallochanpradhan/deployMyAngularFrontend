@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Student } from 'src/app/Model/Student';
 import { RegisterService } from 'src/app/Services/register.service';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @Component({
+   standalone: true,
   selector: 'app-show-students',
+  imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  //FormBuilder, FormGroup, FormControl,
+  //providers: [DatePipe],
   templateUrl: './show-students.component.html',
   styleUrls: ['./show-students.component.css'],
 })

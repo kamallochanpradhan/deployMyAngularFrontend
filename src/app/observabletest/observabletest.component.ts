@@ -1,8 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-observabletest',
+  standalone: true,
+imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  //FormBuilder, FormGroup, FormControl,
+  //providers: [DatePipe],
   templateUrl: './observabletest.component.html',
   styleUrls: ['./observabletest.component.css']
 })

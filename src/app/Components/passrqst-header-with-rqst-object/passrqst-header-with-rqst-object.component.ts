@@ -3,6 +3,9 @@ import { PassRqstHeadeWithRqstModelService } from 'src/app/Services/pass-rqst-he
 
 @Component({
   selector: 'app-passrqst-header-with-rqst-object',
+  standalone: true,
+  imports: [],
+  // Note: If you have any other components or modules to import, add them here
   templateUrl: './passrqst-header-with-rqst-object.component.html',
   styleUrls: ['./passrqst-header-with-rqst-object.component.css']
 })

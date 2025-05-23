@@ -1,8 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-behavior-subject-example',
+  standalone: true,
+    imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  // Note: If you have any other components or modules to import, add them here
+  // e.g., CommonModule, FormsModule, etc.
+  // imports: [CommonModule, FormsModule],
   templateUrl: './behavior-subject-example.component.html',
   styleUrls: ['./behavior-subject-example.component.css']
 })

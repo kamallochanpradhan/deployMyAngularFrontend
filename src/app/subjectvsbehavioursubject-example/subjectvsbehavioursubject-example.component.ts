@@ -1,8 +1,12 @@
+import { CommonModule } from '@angular/common/common_module.d-NEF7UaHr';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-subjectvsbehavioursubject-example',
+  standalone: true,
+ imports: [CommonModule,FormsModule,ReactiveFormsModule],
   templateUrl: './subjectvsbehavioursubject-example.component.html',
   styleUrls: ['./subjectvsbehavioursubject-example.component.css']
 })

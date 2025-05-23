@@ -3,6 +3,10 @@ import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-diff-observable-vs-subject',
+  standalone: true,
+  imports: [],
+  // This is the path to the HTML file for this component
+  // and the path to the CSS file for this component
   templateUrl: './diff-observable-vs-subject.component.html',
   styleUrls: ['./diff-observable-vs-subject.component.css'],
 })

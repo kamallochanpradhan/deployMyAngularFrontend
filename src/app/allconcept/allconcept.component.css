@@ -1,0 +1,11 @@
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+/* in allconcept.component.css */
+.red-heading {
+  color: red;
+}
+.blue-heading {
+  color: blue;
+}
