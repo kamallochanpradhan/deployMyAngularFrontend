@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Subscriber } from 'rxjs';
 import { Student } from 'src/app/Model/Student';
 import { RegisterService } from 'src/app/Services/register.service';
@@ -7,7 +8,7 @@ import { RegisterService } from 'src/app/Services/register.service';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [],
+ imports: [CommonModule,FormsModule,ReactiveFormsModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })

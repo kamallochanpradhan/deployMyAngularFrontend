@@ -1,12 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Agency } from 'src/app/Model/agency.model';
 import { AgencyService } from 'src/app/Services/agency.service';
 
 @Component({
   selector: 'app-agency',
   standalone: true,
-  imports: [],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule],
   // Note: If you have any other components or modules to import, add them here
   templateUrl: './agency.component.html',
   styleUrls: ['./agency.component.css']
