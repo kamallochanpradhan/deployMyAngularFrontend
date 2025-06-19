@@ -6,12 +6,14 @@ import { CommonModule } from '@angular/common';
 import { SignupEmployeeComponent } from '../employee/EmployeeComponents/signup-employee/signup-employee.component';
 import { LifecyclehookComponent } from '../lifecyclehook/lifecyclehook.component';
 import { NgClassImplementComponent } from '../ng-class-implement/ng-class-implement.component';
+import { ParentchangedetectionComponent } from "../Components/parentchangedetection/parentchangedetection.component";
+
 
 @Component({
   selector: 'app-allconcept',
   standalone: true,
-  imports: [NumbersToWordsPipePipe, CustomButtonComponentForHostBindingComponent,CommonModule,
-    FormsModule,ReactiveFormsModule,SignupEmployeeComponent,LifecyclehookComponent,NgClassImplementComponent],
+  imports: [NumbersToWordsPipePipe, CustomButtonComponentForHostBindingComponent, CommonModule,
+    FormsModule, ReactiveFormsModule, SignupEmployeeComponent, LifecyclehookComponent, NgClassImplementComponent, ParentchangedetectionComponent],
   templateUrl: './allconcept.component.html',
   styleUrls: ['./allconcept.component.css']
 })
