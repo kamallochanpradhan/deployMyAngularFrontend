@@ -2,4 +2,7 @@
 
 <h2>Parent Component</h2>
     <button (click)="changeName()">Change Name</button>
-    <app-childchangedetection [user]="user"></app-childchangedetection>
+
+    <button (click)="updateCount()">Increment Count</button>
+
+    <app-childchangedetection [user]="user" [count$]="count$"></app-childchangedetection>

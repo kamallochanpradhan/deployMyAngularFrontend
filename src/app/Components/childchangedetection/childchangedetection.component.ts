@@ -1,19 +1,27 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-childchangedetection',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './childchangedetection.component.html',
   styleUrl: './childchangedetection.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildchangedetectionComponent {
+  //Example-1
  @Input() user!: { name: string };
+
+ //Example-2
+ @Input() count$!: Observable<number>;
+
 ngOnInit(): void {
   debugger;
   // This will log the user object when the component is initialized
   // If the user object is not provided, it will be undefined
     console.log('Child component initialized with user:', this.user);
+    console.log('Child component initialized with count$:', this.count$);
   }
 }
 /**What is ChangeDetectionStrategy.OnPush?
@@ -39,3 +47,10 @@ Angular will not detect that as a change for the child component, because:
 
     /*If you mutate the object (this.user.name = 'Jane'), the change is not detected.
 If you replace the object (this.user = { name: 'Jane' }), Angular detects it.*/
+
+/*The child component is OnPush.
+It does not rely on Angular to detect internal state changes.
+It updates automatically because:
+The count$ observable emits a new value.
+The async pipe subscribes to it and triggers view updates without Angular 
+manually running change detection.*/
