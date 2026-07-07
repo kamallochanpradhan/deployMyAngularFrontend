@@ -1,6 +1,9 @@
 <div class="container">
     <form [formGroup]="displayForm" (ngSubmit)="update()">
         {{stdName}}
+        <div *ngIf="loading$ | async" class="alert alert-info">Loading students...</div>
+        <div *ngIf="error$ | async as error" class="alert alert-danger">{{ error }}</div>
+
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>

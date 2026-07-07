@@ -1,9 +1,14 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Student } from 'src/app/Model/Student';
 import { RegisterService } from 'src/app/Services/register.service';
 import { CommonModule, DatePipe } from '@angular/common';
+import { loadStudents } from 'src/app/store/student/student.actions';
+import { AppState } from 'src/app/store/student/student.reducer';
+import { selectAllStudents, selectStudentsError, selectStudentsLoading } from 'src/app/store/student/student.selectors';
 
 @Component({
    standalone: true,
@@ -15,10 +20,14 @@ import { CommonModule, DatePipe } from '@angular/common';
   templateUrl: './show-students.component.html',
   styleUrls: ['./show-students.component.css'],
 })
-export class ShowStudentsComponent {
+export class ShowStudentsComponent implements OnInit, OnDestroy {
   massage: string = '';
   studentList: Student[] = [];
   captureGenderselectedvalue:string | undefined;
+  students$ = this.store.select(selectAllStudents);
+  loading$ = this.store.select(selectStudentsLoading);
+  error$ = this.store.select(selectStudentsError);
+  private destroy$ = new Subject<void>();
 
   // Create a new instance of Student
 //updatedStudent:Student | undefined;
@@ -38,9 +47,13 @@ updatedStudent: Student | undefined;
   selectedGender!: string;
 
 
-  constructor(private _apiservice: RegisterService, private fb: FormBuilder,private datePipe: DatePipe, private cdr: ChangeDetectorRef) 
-  {
-   
+  constructor(
+    private _apiservice: RegisterService,
+    private fb: FormBuilder,
+    private datePipe: DatePipe,
+    private cdr: ChangeDetectorRef,
+    private store: Store<AppState>
+  ) {
   }
 
   trackByStudentId(index: number, student: Student): number {
@@ -48,16 +61,22 @@ updatedStudent: Student | undefined;
   }
 
   ngOnInit(): void {
+    this.students$.pipe(takeUntil(this.destroy$)).subscribe((students) => {
+      this.studentList = students;
+      this.cdr.markForCheck();
+    });
+
     this.getMyAllStudents();
     this.captureGenderselectedvalue='';
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   getMyAllStudents() {
-    this._apiservice.getStudent().subscribe((data: Student[]) => {
-      this.studentList = data;
-      this.cdr.markForCheck();
-      //console.log(this.studentList);
-    });
+    this.store.dispatch(loadStudents());
   }
 
   deleteStudent(stid: number) {
