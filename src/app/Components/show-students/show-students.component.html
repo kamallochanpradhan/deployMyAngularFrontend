@@ -13,7 +13,7 @@
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
-            <tr *ngFor="let user of studentList">
+            <tr *ngFor="let user of studentList; trackBy: trackByStudentId">
                 <td>
                     {{user.id}}
                 </td>

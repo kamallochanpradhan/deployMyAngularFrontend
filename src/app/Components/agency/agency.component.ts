@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Agency } from 'src/app/Model/agency.model';
 import { AgencyService } from 'src/app/Services/agency.service';
@@ -8,6 +8,7 @@ import { AgencyService } from 'src/app/Services/agency.service';
   selector: 'app-agency',
   standalone: true,
   imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   // Note: If you have any other components or modules to import, add them here
   templateUrl: './agency.component.html',
   styleUrls: ['./agency.component.css']
@@ -19,7 +20,7 @@ export class AgencyComponent implements OnInit {
   editMode: boolean = false;
 
 
-  constructor(private fb: FormBuilder, private agencyService: AgencyService) {
+  constructor(private fb: FormBuilder, private agencyService: AgencyService, private cdr: ChangeDetectorRef) {
     this.agencyForm = this.fb.group({
       id: [0],
       name: ['', Validators.required],
@@ -31,12 +32,19 @@ export class AgencyComponent implements OnInit {
     });
   }
 
+  trackByAgencyId(index: number, agency: Agency): number {
+    return agency.id ?? index;
+  }
+
   ngOnInit(): void {
     this.loadAgencies();
   }
 
   loadAgencies(): void {
-    this.agencyService.getAllAgencies().subscribe(data => this.agencies = data);
+    this.agencyService.getAllAgencies().subscribe(data => {
+      this.agencies = data;
+      this.cdr.markForCheck();
+    });
   }
 
   onSubmit(): void {

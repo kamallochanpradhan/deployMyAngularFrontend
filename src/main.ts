@@ -4,18 +4,13 @@ import { importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app/app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { AuthInterceptor } from './app/auth.interceptor';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(appRoutes),
-    importProvidersFrom(
-      HttpClientModule,
-      FormsModule,
-      ReactiveFormsModule
-    ),
+    importProvidersFrom(HttpClientModule),
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     DatePipe,
   ],

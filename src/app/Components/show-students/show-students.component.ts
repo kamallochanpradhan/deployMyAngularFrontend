@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Student } from 'src/app/Model/Student';
@@ -9,6 +9,7 @@ import { CommonModule, DatePipe } from '@angular/common';
    standalone: true,
   selector: 'app-show-students',
   imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   //FormBuilder, FormGroup, FormControl,
   //providers: [DatePipe],
   templateUrl: './show-students.component.html',
@@ -37,9 +38,13 @@ updatedStudent: Student | undefined;
   selectedGender!: string;
 
 
-  constructor(private _apiservice: RegisterService, private fb: FormBuilder,private datePipe: DatePipe) 
+  constructor(private _apiservice: RegisterService, private fb: FormBuilder,private datePipe: DatePipe, private cdr: ChangeDetectorRef) 
   {
    
+  }
+
+  trackByStudentId(index: number, student: Student): number {
+    return student.id ?? index;
   }
 
   ngOnInit(): void {
@@ -50,6 +55,7 @@ updatedStudent: Student | undefined;
   getMyAllStudents() {
     this._apiservice.getStudent().subscribe((data: Student[]) => {
       this.studentList = data;
+      this.cdr.markForCheck();
       //console.log(this.studentList);
     });
   }
@@ -103,6 +109,7 @@ updatedStudent: Student | undefined;
       this.massage = 'Record updated Successfully';
       //user.isEdit=false;
       this.displayForm.reset();  
+      this.cdr.markForCheck();
 
     });
   }
@@ -122,6 +129,7 @@ updatedStudent: Student | undefined;
       this.massage = 'Record updated Successfully';
       user.isEdit=false;
       this.displayForm.reset();  
+      this.cdr.markForCheck();
 
     });
   }

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Subscriber } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { Student } from 'src/app/Model/Student';
 import { RegisterService } from 'src/app/Services/register.service';
 
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
       Gender: new FormControl(null),
     });
 
-    this.signUpForm.valueChanges.subscribe((value: any)=>{
+    this.signUpForm.valueChanges.pipe(debounceTime(300)).subscribe((value: any)=>{
       console.log("Value Changes Observable will give you all the forms Details",value);
     })
   }

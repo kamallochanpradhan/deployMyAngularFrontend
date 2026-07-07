@@ -1,18 +1,36 @@
 import { Routes } from '@angular/router';
-import { ShowStudentsComponent } from './Components/show-students/show-students.component';
-import { LoginComponent } from './Components/login/login.component';
-import { RegisterComponent } from './Components/register/register.component';
-import { AllconceptComponent } from './allconcept/allconcept.component';
 
 export const appRoutes: Routes = [
-  { path: 'dashboard', component: ShowStudentsComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'allconcept', component: AllconceptComponent },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./Components/show-students/show-students.component').then(
+        (m) => m.ShowStudentsComponent
+      ),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./Components/register/register.component').then(
+        (m) => m.RegisterComponent
+      ),
+  },
+  {
+    path: 'allconcept',
+    loadComponent: () =>
+      import('./allconcept/allconcept.component').then(
+        (m) => m.AllconceptComponent
+      ),
+  },
   {
     path: 'product',
     loadChildren: () =>
       import('./poduct/poduct.module').then((x) => x.PoductModule),
   },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./Components/login/login.component').then((m) => m.LoginComponent),
+  },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
