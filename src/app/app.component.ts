@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { StudentListFromStoreComponent } from './Components/student-list-from-store/student-list-from-store.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-   imports: [CommonModule, RouterModule],//👈 Required for routing
+   imports: [CommonModule, RouterModule, StudentListFromStoreComponent],//👈 Required for routing
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
