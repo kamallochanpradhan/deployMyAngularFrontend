@@ -6,7 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Student } from 'src/app/Model/Student';
 import { RegisterService } from 'src/app/Services/register.service';
 import { CommonModule, DatePipe } from '@angular/common';
-import { loadStudents } from 'src/app/store/student/student.actions';
+import { deleteStudent, loadStudents, updateStudent } from 'src/app/store/student/student.actions';
 import { AppState } from 'src/app/store/student/student.reducer';
 import { selectAllStudents, selectStudentsError, selectStudentsLoading } from 'src/app/store/student/student.selectors';
 
@@ -81,10 +81,7 @@ updatedStudent: Student | undefined;
 
   deleteStudent(stid: number) {
     if (confirm('Are you sure to Delete')) {
-      this._apiservice.deleteStudent(stid).subscribe((data) => {
-        alert(data.toString());
-        this.getMyAllStudents();
-      });
+      this.store.dispatch(deleteStudent({ id: stid }));
     }
   }
 
@@ -123,14 +120,10 @@ updatedStudent: Student | undefined;
  
     this.captureGenderselectedvalue=this.displayForm?.get('gender')?.value??'',
 
-    this._apiservice.updateStudent(this.updatedStudent).subscribe((data)=>{
-      console.log("1ST TIME",data);
-      this.massage = 'Record updated Successfully';
-      //user.isEdit=false;
-      this.displayForm.reset();  
-      this.cdr.markForCheck();
-
-    });
+    this.store.dispatch(updateStudent({ student: this.updatedStudent }));
+    this.massage = 'Record updated Successfully';
+    this.displayForm.reset();  
+    this.cdr.markForCheck();
   }
 
   updateStudent(user:any)
@@ -143,14 +136,11 @@ updatedStudent: Student | undefined;
     user.dateOfBirth=this.displayForm?.get('dateOfBirth');
     user.pin=this.displayForm?.get('pin');
    
-    this._apiservice.updateStudent(user).subscribe((data)=>{
-      console.log("1ST TIME",data);
-      this.massage = 'Record updated Successfully';
-      user.isEdit=false;
-      this.displayForm.reset();  
-      this.cdr.markForCheck();
-
-    });
+    this.store.dispatch(updateStudent({ student: user }));
+    this.massage = 'Record updated Successfully';
+    user.isEdit=false;
+    this.displayForm.reset();  
+    this.cdr.markForCheck();
   }
 
   onEdit(user: any) {
